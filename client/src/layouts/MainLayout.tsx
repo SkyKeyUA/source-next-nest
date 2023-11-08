@@ -9,8 +9,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Head>
-        <title>Task LNOKS</title>
-        <meta name="description" content="Task LNOKS" />
+        <title>Source</title>
+        <meta name="description" content="Source" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

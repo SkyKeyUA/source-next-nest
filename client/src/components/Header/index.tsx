@@ -6,24 +6,8 @@ import styles from './Header.module.scss';
 import Link from 'next/link';
 import { IconsEnum, SvgIcon } from '@components/UI/SvgIcon';
 import { SwitchThemeButton } from '@components/UI/Button';
-
-type MenuItem = {
-  menu: string;
-  submenu?: string[];
-};
-
-const menuItems: MenuItem[] = [
-  {
-    menu: 'About Us',
-  },
-  {
-    menu: 'Article',
-  },
-  {
-    menu: 'Property',
-    submenu: ['House', 'Villa', 'Apartment'],
-  },
-];
+import { Hamburger } from '@components/UI/Hamburger';
+import { menuItems } from './Header.constants';
 
 export const Header: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -40,14 +24,7 @@ export const Header: React.FC = () => {
     <header className={styles.root}>
       <div className={styles.container}>
         <div className={styles.inner}>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            type="button"
-            className={
-              menuOpen ? `${styles['icon-menu']} ${styles['menu-open']}` : styles['icon-menu']
-            }>
-            <span></span>
-          </button>
+          <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <div className={styles.logo}>
             <Link href="/">
               <SvgIcon size={36} src={IconsEnum.logo} />
